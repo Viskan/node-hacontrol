@@ -1,0 +1,27 @@
+{
+  "name": "node-hacontrol",
+  "main": "index.js",
+  "version": "1.0.0",
+  "description": "Provides a simple service for checking HAControl.",
+  "scripts": {
+    "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha test/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Viskan/node-hacontrol.git"
+  },
+  "contributors": [
+    "Ulrik Augustsson",
+    "Anton Johansson <antoon.johansson@gmail.com>"
+  ],
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/Viskan/node-hacontrol/issues"
+  },
+  "homepage": "https://github.com/Viskan/node-hacontrol",
+  "devDependencies": {
+    "expect": "1.6.0",
+    "istanbul": "0.3.7",
+    "mocha": "2.2.0"
+  }
+}

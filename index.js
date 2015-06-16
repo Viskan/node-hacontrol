@@ -83,13 +83,18 @@ function checkHa(path, writeIfMissing, callback)
 {
 	fs.readFile(path, function(error, data)
 	{
-		if (error && writeIfMissing)
+		if (error)
 		{
-			fs.writeFileSync(path, '0', {encoding: null});
+			if (writeIfMissing)
+			{
+				fs.writeFileSync(path, '0', {encoding: null});
+			}
 			callback(false);
 		}
 		else
 		{
+			console.log(error);
+			console.log(data);
 			var newValue = data.toString();
 			callback(newValue === '1');
 		}

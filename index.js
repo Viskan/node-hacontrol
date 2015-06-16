@@ -6,7 +6,9 @@ var fs = require('fs');
  * Simple service for fetching HAControl status.
  *
  * @constructor
+ *
  * @author Ulrik Augustsson
+ * @author Anton Johansson
  */
 var HAControl = function(localPath, globalPath)
 {
@@ -15,8 +17,8 @@ var HAControl = function(localPath, globalPath)
 		return new HAControl(localPath, globalPath);
 	}
 
-    this.localHa = true;
-    this.globalHa = true;
+	this.localHa = true;
+	this.globalHa = true;
 
 	this.localPath = localPath;
 	this.globalPath = globalPath;
@@ -29,8 +31,8 @@ module.exports = HAControl;
  */
 HAControl.prototype.initialize = function()
 {
-    var localPath = this.localPath;
-    var globalPath = this.globalPath;
+	var localPath = this.localPath;
+	var globalPath = this.globalPath;
 
 	var localCallback = function(active)
 	{
@@ -41,29 +43,29 @@ HAControl.prototype.initialize = function()
 		this.globalHa = active;
 	}
 
-    if (localPath)
-    {
-        checkHa(localPath, true, localCallback.bind(this));
-        fs.watchFile(localPath, {persistent: true, interval: 1000}, function (current, previous)
-    	{
-    		if (current.mtime !== previous.mtime)
-    		{
-    			checkHa(localPath, false, localCallback.bind(this));
-    		}
-    	}.bind(this));
-    }
+	if (localPath)
+	{
+		checkHa(localPath, true, localCallback.bind(this));
+		fs.watchFile(localPath, {persistent: true, interval: 1000}, function (current, previous)
+		{
+			if (current.mtime !== previous.mtime)
+			{
+				checkHa(localPath, false, localCallback.bind(this));
+			}
+		}.bind(this));
+	}
 
-    if (globalPath)
-    {
-        checkHa(globalPath, false, globalCallback.bind(this));
-        fs.watchFile(globalPath, {persistent: true, interval: 1000}, function (current, previous)
-    	{
-    		if (current.mtime !== previous.mtime)
-    		{
-        		checkHa(globalPath, false, globalCallback.bind(this));
-    		}
-    	}.bind(this));
-    }
+	if (globalPath)
+	{
+		checkHa(globalPath, false, globalCallback.bind(this));
+		fs.watchFile(globalPath, {persistent: true, interval: 1000}, function (current, previous)
+		{
+			if (current.mtime !== previous.mtime)
+			{
+				checkHa(globalPath, false, globalCallback.bind(this));
+			}
+		}.bind(this));
+	}
 }
 
 /**
@@ -73,8 +75,8 @@ HAControl.prototype.initialize = function()
  */
 HAControl.prototype.isActive = function()
 {
-    return this.localHa
-        && this.globalHa;
+	return this.localHa
+		&& this.globalHa;
 }
 
 function checkHa(path, writeIfMissing, callback)

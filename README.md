@@ -23,7 +23,7 @@ Usage:
 ```js
 var HAControl = require('nodejs-hacontrol');
 var hacontrol = new HAControl('./localHA', '/srv/globalHA');
-
+hacontrol.initialize();
 ...
 
 var isActive = hacontrol.isActive();

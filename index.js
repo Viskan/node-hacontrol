@@ -93,10 +93,8 @@ function checkHa(path, writeIfMissing, callback)
 		}
 		else
 		{
-			console.log(error);
-			console.log(data);
-			var newValue = data.toString();
-			callback(newValue === '1');
+			var newValue = parseInt(data.toString(), 10);
+			callback(newValue === 1);
 		}
 	});
 }

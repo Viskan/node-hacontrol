@@ -10,10 +10,16 @@
     "type": "git",
     "url": "https://github.com/Viskan/node-hacontrol.git"
   },
-  "contributors": [
-    "Ulrik Augustsson",
-    "Anton Johansson <antoon.johansson@gmail.com>"
-  ],
+  "author": {
+    "name": "Ulrik Augustsson",
+    "email": "ulrikaugustsson@gmail.com",
+    "url": "https://github.com/ulrikaugustsson"
+  },
+  "contributors": [{
+    "name": "Anton Johansson",
+    "email": "antoon.johansson@gmail.com",
+    "url": "https://github.com/anton-johansson"
+  }],
   "license": "Apache 2.0",
   "bugs": {
     "url": "https://github.com/Viskan/node-hacontrol/issues"

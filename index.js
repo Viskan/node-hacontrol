@@ -38,34 +38,32 @@ HAControl.prototype.initialize = function()
 	{
 		this.localHa = active;
 	};
-	localCallback.bind(this);
 
 	var globalCallback = function(active)
 	{
 		this.globalHa = active;
 	};
-	globalCallback.bind(this);
 
 	if (localPath)
 	{
-		checkHa(localPath, true, localCallback);
+		checkHa(localPath, true, localCallback.bind(this));
 		fs.watchFile(localPath, {persistent: true, interval: 1000}, function (current, previous)
 		{
 			if (current.mtime !== previous.mtime)
 			{
-				checkHa(localPath, false, localCallback);
+				checkHa(localPath, false, localCallback.bind(this));
 			}
 		}.bind(this));
 	}
 
 	if (globalPath)
 	{
-		checkHa(globalPath, false, globalCallback);
+		checkHa(globalPath, false, globalCallback.bind(this));
 		fs.watchFile(globalPath, {persistent: true, interval: 1000}, function (current, previous)
 		{
 			if (current.mtime !== previous.mtime)
 			{
-				checkHa(globalPath, false, globalCallback);
+				checkHa(globalPath, false, globalCallback.bind(this));
 			}
 		}.bind(this));
 	}

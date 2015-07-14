@@ -6,7 +6,7 @@ A simple module for checking if a service is active in HAControl.
 [![Build Status](https://travis-ci.org/Viskan/node-hacontrol.svg?branch=master)](https://travis-ci.org/Viskan/node-hacontrol)
 
 
-Where can I find the releases? (NOT YET)
+Where can I find the releases?
 ------------------------------
 You can install it using npm. Exampel package.json file:
 
